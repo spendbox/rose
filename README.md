@@ -5,7 +5,8 @@ Built as a plain static site (HTML + CSS + a little vanilla JS) — no build ste
 
 - **Brand colour:** `#cc4e00`
 - **Fonts:** Fraunces (display) + Plus Jakarta Sans (body), loaded from Google Fonts
-- **Sections:** Hero · About · Services · Toolkit · Process · Book · Testimonials · Contact
+- **Sections:** Hero · About · Services · Toolkit · Skills · Process · Book · Testimonials · Contact
+- **Contact:** direct WhatsApp (+234 902 965 7427) plus a floating WhatsApp button (FAB)
 
 ## Structure
 
@@ -33,10 +34,9 @@ python3 -m http.server 8000
 3. Build command: *(leave empty)* · Publish directory: `.`
 4. Deploy. That's it.
 
-The **contact form** uses [Netlify Forms](https://docs.netlify.com/forms/setup/) and
-works automatically once deployed to Netlify — submissions appear under the site's
-**Forms** tab. (It won't capture submissions on plain local file hosting or on Vercel
-without extra setup.)
+Contact is handled entirely via **WhatsApp** — the contact buttons and the floating
+action button open a chat with +234 902 965 7427 (with a friendly pre-filled message).
+No form, no backend, so this deploys identically to Netlify or Vercel.
 
 ## Things to personalise
 
@@ -47,14 +47,12 @@ These are the only spots with placeholder/assumed content — swap in the real d
 - **Book title:** the cover art and copy in the Book section use a generic title since
   the Selar page (`selar.com/5w907v13u9`) was blocked by this environment's network
   policy — update the real title in `index.html` (search for `book__cover-title`).
-- **About / services copy:** written from solid VA best-practice since the Canva
-  portfolio couldn't be fetched here. Tweak to match Rosemary's exact voice/offerings.
+- **About / services / skills copy:** taken from Rosemary's portfolio slides. Tweak freely.
 - **Stats strip:** the four figures (response time etc.) are sensible defaults — confirm
   or change them in `index.html`.
 
 ## A note on hosting
 
 You mentioned both Netlify and Vercel. This is configured for **Netlify** (per your
-"build it on Netlify for now"). It will also deploy fine to Vercel as a static site —
-the only Netlify-specific feature is the contact form, which would need a Vercel
-alternative (e.g. Formspree) if you move.
+"build it on Netlify for now"), but since it's pure static frontend with WhatsApp
+contact (no form/backend), it deploys identically to Vercel with zero changes.
