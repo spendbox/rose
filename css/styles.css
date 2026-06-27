@@ -211,6 +211,38 @@ a { color: inherit; text-decoration: none; }
   background: var(--brand); transform: translateY(-50%);
 }
 
+/* Hero decorative motion layer */
+.hero__copy, .hero__visual { position: relative; z-index: 1; }
+.hero__deco { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.hero__deco .deco { position: absolute; }
+
+.deco--squiggle, .deco--wave, .deco--plus { fill: none; stroke: var(--brand); stroke-linecap: round; }
+.deco--squiggle { stroke-width: 2; opacity: .16; }
+.deco--wave { stroke-width: 2.2; opacity: .13; }
+.deco--plus { stroke-width: 2; opacity: .22; }
+.deco--squiggle path, .deco--wave path { stroke-dasharray: 5 9; animation: decoFlow 7s linear infinite; }
+
+.deco--dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); opacity: .2; animation: decoTwinkle 5s ease-in-out infinite; }
+.deco--ring { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--brand); opacity: .16; animation: decoTwinkle 6s ease-in-out infinite; }
+
+.d1 { width: 120px; top: 14%; right: 30%; animation: decoDrift1 15s ease-in-out infinite; }
+.d2 { width: 92px;  bottom: 16%; left: 24%; animation: decoDrift2 18s ease-in-out infinite; }
+.d3 { width: 158px; top: 52%; right: 4%;  animation: decoDrift1 21s ease-in-out infinite; }
+.d4 { width: 138px; top: 24%; left: 1%;   animation: decoDrift2 17s ease-in-out infinite; }
+.pl1 { width: 18px; top: 12%; left: 16%;  animation: decoSpin 26s linear infinite; }
+.pl2 { width: 22px; bottom: 14%; right: 16%; animation: decoSpin 32s linear infinite reverse; }
+.dot1 { top: 20%; right: 12%; animation-delay: 0s; }
+.dot2 { top: 64%; left: 8%;  width: 7px; height: 7px; animation-delay: 1.4s; }
+.dot3 { bottom: 24%; right: 34%; width: 8px; height: 8px; animation-delay: 2.6s; }
+.dot4 { top: 40%; left: 40%; width: 6px; height: 6px; opacity: .14; animation-delay: 3.4s; }
+.rg1 { top: 70%; right: 22%; animation-delay: 1s; }
+
+@keyframes decoFlow { to { stroke-dashoffset: -28; } }
+@keyframes decoTwinkle { 0%, 100% { opacity: .1; transform: scale(.85); } 50% { opacity: .32; transform: scale(1.2); } }
+@keyframes decoSpin { to { transform: rotate(360deg); } }
+@keyframes decoDrift1 { 0%, 100% { transform: translate(0, 0) rotate(-3deg); } 50% { transform: translate(10px, -16px) rotate(3deg); } }
+@keyframes decoDrift2 { 0%, 100% { transform: translate(0, 0) rotate(2deg); } 50% { transform: translate(-12px, 14px) rotate(-4deg); } }
+
 /* Hero visual */
 .hero__visual { position: relative; display: grid; place-items: center; }
 .hero__blob {
@@ -799,7 +831,8 @@ a { color: inherit; text-decoration: none; }
   .portrait__dot, .fab::after, .hero::before, .hero::after, .hero__blob,
   .hero__title em, .portrait, .marquee__track,
   .hero-scene__core, .hero-scene__ring, .hero-scene__chip,
-  .hero-figure__glow { animation: none !important; }
+  .hero-figure__glow, .hero__deco .deco,
+  .deco--squiggle path, .deco--wave path { animation: none !important; }
 }
 
 /* ---------- Responsive ---------- */
