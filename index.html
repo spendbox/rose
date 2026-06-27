@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=4" />
+  <link rel="stylesheet" href="css/styles.css?v=5" />
 </head>
 <body>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -84,7 +84,11 @@
           <div class="portrait hero-scene">
             <span class="hero-scene__ring" aria-hidden="true"></span>
             <span class="hero-scene__ring hero-scene__ring--2" aria-hidden="true"></span>
-            <div class="hero-scene__core" aria-hidden="true">R</div>
+            <div class="hero-scene__core" aria-hidden="true">
+              <img class="hero-scene__logo" src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782543780/file_00000000163471f4b5dad1e57c0ec191_prnacy.png"
+                   alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <span class="hero-scene__core-fallback" style="display:none">R</span>
+            </div>
 
             <div class="hero-scene__chip hero-scene__chip--a" aria-hidden="true">
               <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/></svg>
@@ -524,6 +528,6 @@
     <span class="fab__tip">Chat with me</span>
   </a>
 
-  <script src="js/main.js?v=4"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
