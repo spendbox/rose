@@ -27,8 +27,12 @@
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a href="#top" class="brand" aria-label="The Ress Brand — home">
-        <span class="brand__mark">R</span>
-        <span class="brand__text">Ress<span class="brand__dot">.</span></span>
+        <img class="brand__logo" src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782543780/file_00000000163471f4b5dad1e57c0ec191_prnacy.png"
+             alt="The Ress Brand" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+        <span class="brand__fallback" style="display:none">
+          <span class="brand__mark">R</span>
+          <span class="brand__text">Ress<span class="brand__dot">.</span></span>
+        </span>
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Primary">
@@ -274,14 +278,15 @@
     <section class="section book" id="book">
       <div class="container book__inner">
         <div class="book__visual reveal">
-          <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/f_auto,q_auto/1000183605_cc0sve"
-               alt="Becoming a Virtual Assistant — book cover by Rosemary"
-               class="book__cover-img" loading="lazy"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="book__cover" style="display:none" aria-hidden="true">
-            <span class="book__cover-spine"></span>
-            <span class="book__cover-title">Becoming a Virtual Assistant</span>
-            <span class="book__cover-by">by Rosemary</span>
+          <div class="book3d">
+            <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782542946/Screenshot_20260627-074754_bdq0du.png"
+                 alt="Becoming a Virtual Assistant — book cover by Rosemary"
+                 class="book3d__cover" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="book3d__cover book3d__cover--fallback" style="display:none" aria-hidden="true">
+              <span class="book__cover-title">Becoming a Virtual Assistant</span>
+              <span class="book__cover-by">by Rosemary</span>
+            </div>
           </div>
         </div>
         <div class="book__copy reveal">
@@ -389,8 +394,12 @@
   <footer class="footer">
     <div class="container footer__inner">
       <a href="#top" class="brand brand--footer">
-        <span class="brand__mark">R</span>
-        <span class="brand__text">The Ress Brand</span>
+        <img class="brand__logo brand__logo--footer" src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782543780/file_00000000163471f4b5dad1e57c0ec191_prnacy.png"
+             alt="The Ress Brand" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+        <span class="brand__fallback" style="display:none">
+          <span class="brand__mark">R</span>
+          <span class="brand__text">The Ress Brand</span>
+        </span>
       </a>
       <p class="footer__tag">Virtual Assistant · Executive &amp; Admin Support</p>
       <nav class="footer__links" aria-label="Footer">
