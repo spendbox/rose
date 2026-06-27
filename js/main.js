@@ -34,6 +34,38 @@
     });
   }
 
+  // Lightbox for portfolio / certificate images
+  var lb = document.getElementById("lightbox");
+  if (lb) {
+    var lbImg = document.getElementById("lightboxImg");
+    var openLightbox = function (src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lb.classList.add("is-open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+    var closeLightbox = function () {
+      lb.classList.remove("is-open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    };
+    document.querySelectorAll("[data-lightbox]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var img = link.querySelector("img");
+        openLightbox(link.getAttribute("href"), img ? img.alt : "");
+      });
+    });
+    lb.addEventListener("click", function (e) {
+      if (e.target !== lbImg) closeLightbox();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lb.classList.contains("is-open")) closeLightbox();
+    });
+  }
+
   // Scroll-reveal animation
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {

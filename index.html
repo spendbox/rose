@@ -38,7 +38,7 @@
       <nav class="nav__links" id="navLinks" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#work">Work</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#book">Book</a>
         <a href="#testimonials">Praise</a>
         <a href="#contact" class="nav__cta">Let's talk</a>
@@ -242,6 +242,66 @@
       </div>
     </section>
 
+    <!-- ===== Portfolio / Proof of work ===== -->
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2 class="section__title">Proof of work</h2>
+          <p class="section__sub">Real samples and results from recent projects. Tap any image to view it full size.</p>
+        </div>
+        <div class="gallery">
+          <figure class="shot reveal">
+            <a class="shot__link" data-lightbox href="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547197/IMG-20260627-WA0001_vbkgdy.jpg" target="_blank" rel="noopener">
+              <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547197/IMG-20260627-WA0001_vbkgdy.jpg" alt="Data entry and collection work sample" loading="lazy" />
+            </a>
+            <figcaption>Data Entry &amp; Collection</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <a class="shot__link" data-lightbox href="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547197/IMG-20260627-WA0003_1_gab6ej.jpg" target="_blank" rel="noopener">
+              <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547197/IMG-20260627-WA0003_1_gab6ej.jpg" alt="Lead generation work sample" loading="lazy" />
+            </a>
+            <figcaption>Lead Generation</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <a class="shot__link" data-lightbox href="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547198/IMG-20260627-WA0004_ctcncu.jpg" target="_blank" rel="noopener">
+              <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547198/IMG-20260627-WA0004_ctcncu.jpg" alt="Calendar management work sample" loading="lazy" />
+            </a>
+            <figcaption>Calendar Management</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <a class="shot__link" data-lightbox href="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547197/IMG-20260627-WA0005_aj1njr.jpg" target="_blank" rel="noopener">
+              <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547197/IMG-20260627-WA0005_aj1njr.jpg" alt="Appointment scheduling work sample" loading="lazy" />
+            </a>
+            <figcaption>Appointment Scheduling</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Certifications ===== -->
+    <section class="section certs" id="certifications">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Credentials</p>
+          <h2 class="section__title">Certifications</h2>
+          <p class="section__sub">Training completed to keep my skills sharp and current.</p>
+        </div>
+        <div class="gallery gallery--certs">
+          <figure class="shot reveal">
+            <a class="shot__link" data-lightbox href="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547202/IMG-20260627-WA0000_fhw3nj.jpg" target="_blank" rel="noopener">
+              <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547202/IMG-20260627-WA0000_fhw3nj.jpg" alt="Certificate of completion" loading="lazy" />
+            </a>
+          </figure>
+          <figure class="shot reveal">
+            <a class="shot__link" data-lightbox href="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547200/IMG-20260627-WA0006_zwkwtm.jpg" target="_blank" rel="noopener">
+              <img src="https://res.cloudinary.com/dxlza3zgj/image/upload/v1782547200/IMG-20260627-WA0006_zwkwtm.jpg" alt="Certificate of completion" loading="lazy" />
+            </a>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Work / Process ===== -->
     <section class="section work" id="work">
       <div class="container">
@@ -410,6 +470,12 @@
       <p class="footer__copy">© <span id="year"></span> The Ress Brand. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close preview">&times;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+  </div>
 
   <!-- Floating WhatsApp button -->
   <a href="https://wa.me/2349029657427?text=Hi%20Rosemary%2C%20I%27d%20love%20to%20work%20with%20you."
