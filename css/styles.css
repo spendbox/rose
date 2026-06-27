@@ -628,13 +628,15 @@ a { color: inherit; text-decoration: none; }
 .book__copy p { color: var(--ink-soft); font-size: 1.1rem; max-width: 52ch; margin: 0 0 26px; }
 
 /* ---------- Testimonials ---------- */
-.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonials .container { max-width: 1240px; }
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
 .quote {
   position: relative;
+  display: flex; flex-direction: column;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 40px 34px 30px;
+  padding: 36px 34px 30px;
   box-shadow: var(--shadow-sm);
 }
 .quote__mark {
@@ -644,9 +646,10 @@ a { color: inherit; text-decoration: none; }
 }
 .quote blockquote {
   position: relative; z-index: 1;
-  margin: 0 0 22px; font-size: 1.08rem; color: var(--ink-soft);
+  margin: 0 0 24px; font-size: 1.05rem; line-height: 1.6; color: var(--ink-soft);
 }
-.quote figcaption { display: flex; flex-direction: column; gap: 2px; border-top: 1px solid var(--line); padding-top: 16px; }
+/* attribution always pinned to the bottom so uneven-length cards stay balanced */
+.quote figcaption { margin-top: auto; display: flex; flex-direction: column; gap: 2px; border-top: 1px solid var(--line); padding-top: 16px; }
 .quote__name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
 .quote__role { font-size: .9rem; color: var(--muted); }
 
