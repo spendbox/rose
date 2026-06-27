@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- ===== Navigation ===== -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
@@ -96,8 +98,8 @@
     <!-- ===== Logos / value strip ===== -->
     <section class="strip">
       <div class="container strip__inner reveal">
-        <div class="strip__item"><strong>100%</strong><span>Remote &amp; flexible</span></div>
-        <div class="strip__item"><strong>24h</strong><span>Typical response time</span></div>
+        <div class="strip__item"><strong data-count="100" data-suffix="%">100%</strong><span>Remote &amp; flexible</span></div>
+        <div class="strip__item"><strong data-count="24" data-suffix="h">24h</strong><span>Typical response time</span></div>
         <div class="strip__item"><strong>Detail</strong><span>obsessed by default</span></div>
         <div class="strip__item"><strong>Calm</strong><span>under deadline pressure</span></div>
       </div>
@@ -241,6 +243,24 @@
         </ul>
       </div>
     </section>
+
+    <!-- ===== Marquee band ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Reliable</span><span class="marquee__dot">✦</span>
+        <span>Organised</span><span class="marquee__dot">✦</span>
+        <span>Detail-Oriented</span><span class="marquee__dot">✦</span>
+        <span>Proactive</span><span class="marquee__dot">✦</span>
+        <span>Professional</span><span class="marquee__dot">✦</span>
+        <span>On Time</span><span class="marquee__dot">✦</span>
+        <span>Reliable</span><span class="marquee__dot">✦</span>
+        <span>Organised</span><span class="marquee__dot">✦</span>
+        <span>Detail-Oriented</span><span class="marquee__dot">✦</span>
+        <span>Proactive</span><span class="marquee__dot">✦</span>
+        <span>Professional</span><span class="marquee__dot">✦</span>
+        <span>On Time</span><span class="marquee__dot">✦</span>
+      </div>
+    </div>
 
     <!-- ===== Portfolio / Proof of work ===== -->
     <section class="section portfolio" id="portfolio">

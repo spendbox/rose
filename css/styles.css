@@ -139,8 +139,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
-.brand__logo { height: 34px; width: auto; max-width: 150px; object-fit: contain; display: block; }
-.brand__logo--footer { height: 40px; max-width: 180px; }
+.brand__logo { height: 18px; width: auto; max-width: 88px; object-fit: contain; display: block; }
+.brand__logo--footer { height: 22px; max-width: 100px; }
 .brand__fallback { align-items: center; gap: 10px; }
 .brand__mark {
   width: 36px; height: 36px;
@@ -569,13 +569,122 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ---------- Reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.is-visible { opacity: 1; transform: none; }
+
+/* =========================================================
+   DYNAMIC ENHANCEMENTS — motion, depth & life
+   ========================================================= */
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  z-index: 80;
+  background: linear-gradient(90deg, var(--brand), #ff8a3d);
+  box-shadow: 0 0 10px rgba(204, 78, 0, .5);
+  transition: width .1s linear;
+}
+
+/* Hero — animated aurora orbs */
+.hero { isolation: isolate; overflow: hidden; }
+.hero::before, .hero::after {
+  content: ""; position: absolute; z-index: -1; border-radius: 50%;
+  filter: blur(70px); pointer-events: none;
+}
+.hero::before {
+  width: 520px; height: 520px; top: -160px; left: -120px;
+  background: radial-gradient(circle, rgba(204, 78, 0, .34), transparent 65%);
+  animation: floatOrb1 15s ease-in-out infinite alternate;
+}
+.hero::after {
+  width: 440px; height: 440px; bottom: -180px; right: -80px;
+  background: radial-gradient(circle, rgba(255, 150, 80, .28), transparent 65%);
+  animation: floatOrb2 19s ease-in-out infinite alternate;
+}
+@keyframes floatOrb1 { from { transform: translate(0,0) scale(1); } to { transform: translate(50px,40px) scale(1.12); } }
+@keyframes floatOrb2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-40px,-50px) scale(1.1); } }
+
+/* Animated gradient on the hero accent word */
+.hero__title em {
+  background: linear-gradient(100deg, var(--brand) 0%, #ff8a3d 50%, var(--brand) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer { to { background-position: 220% center; } }
+
+/* Gentle floating portrait */
+.portrait { animation: floaty 7s ease-in-out infinite; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.hero__blob { animation: floatOrb2 17s ease-in-out infinite alternate; }
+
+/* Eyebrow accent line */
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before {
+  content: ""; width: 26px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--brand), transparent);
+}
+
+/* Buttons — shine sweep */
+.btn { position: relative; overflow: hidden; }
+.btn--primary::after, .btn--whatsapp::after {
+  content: ""; position: absolute; top: 0; left: -130%;
+  width: 55%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+  transform: skewX(-20deg); pointer-events: none;
+  transition: left .65s ease;
+}
+.btn--primary:hover::after, .btn--whatsapp:hover::after { left: 150%; }
+
+/* Nav links — animated underline + active state */
+.nav__links a:not(.nav__cta) { position: relative; }
+.nav__links a:not(.nav__cta)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 2px; border-radius: 2px; background: var(--brand);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+}
+.nav__links a:not(.nav__cta):hover::after,
+.nav__links a.is-active:not(.nav__cta)::after { transform: scaleX(1); }
+.nav__links a.is-active:not(.nav__cta) { color: var(--brand); }
+
+/* Service cards — hover glow + icon pop */
+.card { position: relative; overflow: hidden; }
+.card::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(220px circle at 50% 0%, rgba(204, 78, 0, .12), transparent 70%);
+  opacity: 0; transition: opacity .35s ease;
+}
+.card:hover::before { opacity: 1; }
+.card__icon { transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+.card:hover .card__icon { transform: translateY(-4px) rotate(-5deg) scale(1.08); }
+
+/* Marquee band */
+.marquee {
+  overflow: hidden; background: var(--ink); color: var(--cream);
+  padding: 20px 0; border-block: 1px solid rgba(255, 255, 255, .08);
+}
+.marquee__track {
+  display: inline-flex; align-items: center; gap: 30px;
+  white-space: nowrap; will-change: transform;
+  animation: marquee 26s linear infinite;
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__track span {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.2rem, 2.6vw, 2rem); letter-spacing: -.01em;
+}
+.marquee__dot { color: var(--brand); font-size: 1rem !important; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Count-up numbers pop slightly when revealed */
+.strip__item strong { display: inline-block; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .portrait__dot, .fab::after { animation: none; }
+  .portrait__dot, .fab::after, .hero::before, .hero::after, .hero__blob,
+  .hero__title em, .portrait, .marquee__track { animation: none !important; }
 }
 
 /* ---------- Responsive ---------- */
