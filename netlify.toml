@@ -9,6 +9,8 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    # HTML must always revalidate so updated asset URLs (?v=) reach browsers
+    Cache-Control = "public, max-age=0, must-revalidate"
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
