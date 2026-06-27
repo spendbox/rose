@@ -44,9 +44,9 @@ These are the only spots with placeholder/assumed content — swap in the real d
 
 - **Photo:** add `assets/rosemary.jpg` (portrait, ideally 4:5). It auto-replaces the
   monogram in the hero. No code change needed.
-- **Book title:** the cover art and copy in the Book section use a generic title since
-  the Selar page (`selar.com/5w907v13u9`) was blocked by this environment's network
-  policy — update the real title in `index.html` (search for `book__cover-title`).
+- **Book cover:** the Book section loads the real cover from Cloudinary. If that URL
+  ever changes, update the `book__cover-img` `src` in `index.html` (a styled text
+  fallback shows automatically if the image fails to load).
 - **About / services / skills copy:** taken from Rosemary's portfolio slides. Tweak freely.
 - **Stats strip:** the four figures (response time etc.) are sensible defaults — confirm
   or change them in `index.html`.
