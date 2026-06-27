@@ -146,8 +146,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
-.brand__logo { height: 34px; width: auto; max-width: 150px; object-fit: contain; display: block; }
-.brand__logo--footer { height: 46px; max-width: 190px; }
+.brand__logo { height: 44px; width: auto; max-width: 190px; object-fit: contain; display: block; }
+.brand__logo--footer { height: 60px; max-width: 240px; }
 .brand__fallback { align-items: center; gap: 10px; }
 .brand__mark {
   width: 36px; height: 36px;
@@ -261,6 +261,45 @@ a { color: inherit; text-decoration: none; }
   70% { box-shadow: 0 0 0 8px rgba(34, 160, 107, 0); }
   100% { box-shadow: 0 0 0 0 rgba(34, 160, 107, 0); }
 }
+
+/* ---------- Animated hero scene ---------- */
+.hero-scene { display: grid; place-items: center; position: relative; }
+.hero-scene__core {
+  position: relative; z-index: 2;
+  width: 132px; height: 132px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 600; font-size: 3.6rem; color: #fff;
+  background: linear-gradient(150deg, var(--brand), var(--brand-700));
+  box-shadow: 0 20px 44px rgba(204, 78, 0, .42), inset 0 2px 6px rgba(255,255,255,.18);
+  animation: coreFloat 6s ease-in-out infinite;
+}
+.hero-scene__ring {
+  position: absolute; z-index: 1;
+  width: 150px; height: 150px; border-radius: 50%;
+  border: 2px solid rgba(204, 78, 0, .35);
+  animation: ringPulse 3.4s ease-out infinite;
+}
+.hero-scene__ring--2 { animation-delay: 1.7s; }
+@keyframes ringPulse {
+  0% { transform: scale(.66); opacity: .8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@keyframes coreFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.hero-scene__chip {
+  position: absolute; z-index: 3;
+  width: 58px; height: 58px; border-radius: 16px;
+  background: #fff; color: var(--brand);
+  display: grid; place-items: center;
+  box-shadow: var(--shadow-md);
+  animation: chipFloat 4.5s ease-in-out infinite;
+}
+.hero-scene__chip svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.hero-scene__chip--a { top: 13%; left: 9%;  animation-delay: 0s; }
+.hero-scene__chip--b { top: 17%; right: 9%; animation-delay: .9s; color: #2EB67D; }
+.hero-scene__chip--c { bottom: 26%; left: 8%; animation-delay: 1.8s; color: #2EB67D; }
+.hero-scene__chip--d { bottom: 31%; right: 8%; animation-delay: 2.6s; }
+@keyframes chipFloat { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-13px) rotate(-3deg); } }
 
 /* ---------- Value strip ---------- */
 .strip { background: var(--ink); color: var(--cream); }
@@ -663,9 +702,6 @@ a { color: inherit; text-decoration: none; }
 }
 @keyframes shimmer { to { background-position: 220% center; } }
 
-/* Gentle floating portrait */
-.portrait { animation: floaty 7s ease-in-out infinite; }
-@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 .hero__blob { animation: floatOrb2 17s ease-in-out infinite alternate; }
 
 /* Buttons — shine sweep */
@@ -726,7 +762,8 @@ a { color: inherit; text-decoration: none; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .portrait__dot, .fab::after, .hero::before, .hero::after, .hero__blob,
-  .hero__title em, .portrait, .marquee__track { animation: none !important; }
+  .hero__title em, .portrait, .marquee__track,
+  .hero-scene__core, .hero-scene__ring, .hero-scene__chip { animation: none !important; }
 }
 
 /* ---------- Responsive ---------- */
